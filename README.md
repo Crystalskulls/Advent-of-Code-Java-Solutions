@@ -1,6 +1,6 @@
 # Advent of Code Java Solutions
 
-This repository contains Java solutions for the Advent of Code puzzles. Advent of Code is an annual coding event that features a series of programming puzzles released daily in the days leading up to Christmas.
+This repository contains Java solutions for the [Advent of Code](https://adventofcode.com) puzzles. Advent of Code is an annual coding event that features a series of programming puzzles released daily in the days leading up to Christmas.
 
 ## Requirements
 
