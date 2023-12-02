@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="AdventOfCode" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.github.crystalskulls.aoc.AdventOfCode" />
+    <module name="advent-of-code" />
+    <option name="PROGRAM_PARAMETERS" value="-y=2023" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.github.crystalskulls.aoc.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
