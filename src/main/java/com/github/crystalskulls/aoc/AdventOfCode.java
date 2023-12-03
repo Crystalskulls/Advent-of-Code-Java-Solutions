@@ -1,11 +1,11 @@
 package com.github.crystalskulls.aoc;
 
 import com.github.crystalskulls.aoc._2022.day1.Day1;
-import com.github.crystalskulls.aoc._2022.day2.Day2;
 import com.github.crystalskulls.aoc._2022.day3.Day3;
 import com.github.crystalskulls.aoc._2022.day4.Day4;
 import com.github.crystalskulls.aoc._2022.day5.Day5;
 import com.github.crystalskulls.aoc._2022.day6.Day6;
+import com.github.crystalskulls.aoc._2023.day2.Day2;
 import com.github.crystalskulls.aoc.common.Puzzle;
 import org.apache.commons.cli.CommandLine;
 
@@ -21,7 +21,7 @@ public class AdventOfCode {
             ),
             2022, Map.of(
                     1, new Day1(),
-                    2, new Day2(),
+                    2, new com.github.crystalskulls.aoc._2022.day2.Day2(),
                     3, new Day3(),
                     4, new Day4(),
                     5, new Day5(),
@@ -29,7 +29,8 @@ public class AdventOfCode {
             ),
             2023, Map.of(
                     1, new com.github.crystalskulls.aoc._2023.day1.Day1(),
-                    2, new com.github.crystalskulls.aoc._2023.day2.Day2()
+                    2, new Day2(),
+                    3, new com.github.crystalskulls.aoc._2023.day3.Day3()
             )
     );
 
