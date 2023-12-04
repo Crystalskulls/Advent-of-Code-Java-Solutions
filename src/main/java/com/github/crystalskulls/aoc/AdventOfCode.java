@@ -30,7 +30,8 @@ public class AdventOfCode {
             2023, Map.of(
                     1, new com.github.crystalskulls.aoc._2023.day1.Day1(),
                     2, new Day2(),
-                    3, new com.github.crystalskulls.aoc._2023.day3.Day3()
+                    3, new com.github.crystalskulls.aoc._2023.day3.Day3(),
+                    4, new com.github.crystalskulls.aoc._2023.day4.Day4()
             )
     );
 
