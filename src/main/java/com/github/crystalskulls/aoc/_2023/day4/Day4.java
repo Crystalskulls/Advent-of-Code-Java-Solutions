@@ -2,6 +2,7 @@ package com.github.crystalskulls.aoc._2023.day4;
 
 import com.github.crystalskulls.aoc.common.FileReader;
 import com.github.crystalskulls.aoc.common.Puzzle;
+import com.github.crystalskulls.aoc.common.Regex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Day4 extends Puzzle {
 
     private final List<Scratchcard> scratchcards = new ArrayList<>();
     private final List<List<Scratchcard>> totalScratchcards = new ArrayList<>();
-    private final Pattern numberPattern = Pattern.compile("\\d+");
+    private final Regex regex = new Regex();
     private int sum = 0;
 
     public Day4() {
@@ -66,18 +67,9 @@ public class Day4 extends Puzzle {
         for (String scratchcard : scratchcards) {
             String[] scratchcardSnippets = scratchcard.split("\\|");
             this.scratchcards.add(new Scratchcard(
-                    findNumbers(scratchcardSnippets[0].split(":")[1]),
-                    findNumbers(scratchcardSnippets[1])
+                    regex.findNumbers(scratchcardSnippets[0].split(":")[1], Integer::parseInt),
+                    regex.findNumbers(scratchcardSnippets[1], Integer::parseInt)
             ));
         }
-    }
-
-    private List<Integer> findNumbers(String numberString) {
-        Matcher matcher = this.numberPattern.matcher(numberString);
-        List<Integer> numbers = new ArrayList<>();
-        while (matcher.find()) {
-            numbers.add(Integer.parseInt(matcher.group()));
-        }
-        return numbers;
     }
 }

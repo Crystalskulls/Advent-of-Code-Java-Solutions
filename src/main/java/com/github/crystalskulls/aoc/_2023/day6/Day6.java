@@ -33,8 +33,8 @@ public class Day6 extends Puzzle {
     @Override
     protected void readInputData(String inputFile) {
         List<String> lines = FileReader.readAllLines(inputFile);
-        this.times = this.regex.findNumbers(lines.getFirst());
-        this.distances = this.regex.findNumbers(lines.getLast());
+        this.times = this.regex.findNumbers(lines.getFirst(), Long::parseLong);
+        this.distances = this.regex.findNumbers(lines.getLast(), Long::parseLong);
     }
 
     private int calculateWaysToWin(List<Long> times, List<Long> distances) {

@@ -2,6 +2,7 @@ package com.github.crystalskulls.aoc._2023.day3;
 
 import com.github.crystalskulls.aoc.common.FileReader;
 import com.github.crystalskulls.aoc.common.Puzzle;
+import com.github.crystalskulls.aoc.common.Regex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.regex.Pattern;
 public class Day3 extends Puzzle {
 
     private List<String> engineSchematics = new ArrayList<>();
-    private final Pattern numberPattern = Pattern.compile("\\d+");
+    private final Pattern numberPattern = new Regex().numberPattern;
     private final Pattern symbolPattern = Pattern.compile("[^.\\d\\s]");
     private final Pattern starSymbolPattern = Pattern.compile("\\*");
     private List<Number> numbers;
