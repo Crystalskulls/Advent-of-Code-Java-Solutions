@@ -43,9 +43,13 @@ public class Day6 extends Puzzle {
             int waysToWin = 0;
             Long time = times.get(i);
             Long distanceRecord = distances.get(i);
+            Boolean stillWaysToWin = null;
             for (int j = 0; j < time+1; j++) {
                 if(j * (time - j) > distanceRecord) {
                     waysToWin++;
+                    stillWaysToWin = false;
+                } else if(Boolean.FALSE.equals(stillWaysToWin)) {
+                    break;
                 }
             }
             result *= waysToWin;
