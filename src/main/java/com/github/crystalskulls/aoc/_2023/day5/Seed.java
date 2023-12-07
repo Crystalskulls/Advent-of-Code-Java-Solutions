@@ -1,7 +1,6 @@
 package com.github.crystalskulls.aoc._2023.day5;
 
 import lombok.Data;
-import lombok.Getter;
 
 @Data
 public class Seed {

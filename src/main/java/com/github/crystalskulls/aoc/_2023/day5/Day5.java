@@ -3,7 +3,10 @@ package com.github.crystalskulls.aoc._2023.day5;
 import com.github.crystalskulls.aoc.common.FileReader;
 import com.github.crystalskulls.aoc.common.Puzzle;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

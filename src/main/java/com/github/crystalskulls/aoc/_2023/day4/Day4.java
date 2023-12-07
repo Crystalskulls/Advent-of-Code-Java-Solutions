@@ -6,8 +6,6 @@ import com.github.crystalskulls.aoc.common.Regex;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Day4 extends Puzzle {
 
