@@ -8,6 +8,7 @@ import com.github.crystalskulls.aoc._2022.day6.Day6;
 import com.github.crystalskulls.aoc._2023.day2.Day2;
 import com.github.crystalskulls.aoc._2023.day7.Day7;
 import com.github.crystalskulls.aoc._2023.day8.Day8;
+import com.github.crystalskulls.aoc._2023.day9.Day9;
 import com.github.crystalskulls.aoc.common.Puzzle;
 import org.apache.commons.cli.CommandLine;
 
@@ -37,7 +38,8 @@ public class AdventOfCode {
                     5, new com.github.crystalskulls.aoc._2023.day5.Day5(),
                     6, new com.github.crystalskulls.aoc._2023.day6.Day6(),
                     7, new Day7(),
-                    8, new Day8()
+                    8, new Day8(),
+                    9, new Day9()
             )
     );
 
