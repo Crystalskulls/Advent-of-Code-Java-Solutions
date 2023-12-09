@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class Day3 extends Puzzle {
 
     private List<String> engineSchematics = new ArrayList<>();
-    private final Pattern numberPattern = new Regex().numberPattern;
+    private final Pattern numberPattern = Regex.positiveNumberPattern;
     private final Pattern symbolPattern = Pattern.compile("[^.\\d\\s]");
     private final Pattern starSymbolPattern = Pattern.compile("\\*");
     private List<Number> numbers;

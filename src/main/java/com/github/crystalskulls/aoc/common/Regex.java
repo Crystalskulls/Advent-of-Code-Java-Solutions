@@ -8,10 +8,11 @@ import java.util.regex.Pattern;
 
 public class Regex {
 
-    public final Pattern numberPattern = Pattern.compile("\\d+");
+    public static final Pattern positiveNumberPattern = java.util.regex.Pattern.compile("\\d+");
+    public static final Pattern positiveAndNegativeNumberPattern = Pattern.compile("-?\\d+");
 
-    public <T extends Number> List<T> findNumbers(String numberString, Function<String, T> numberConverter) {
-        Matcher matcher = this.numberPattern.matcher(numberString);
+    public static <T extends Number> List<T> findNumbers(String numberString, Pattern pattern, Function<String, T> numberConverter) {
+        Matcher matcher = pattern.matcher(numberString);
         List<T> numbers = new ArrayList<>();
         while (matcher.find()) {
             numbers.add((numberConverter.apply(matcher.group())));

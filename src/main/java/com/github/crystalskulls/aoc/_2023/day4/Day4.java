@@ -11,7 +11,6 @@ public class Day4 extends Puzzle {
 
     private final List<Scratchcard> scratchcards = new ArrayList<>();
     private final List<List<Scratchcard>> totalScratchcards = new ArrayList<>();
-    private final Regex regex = new Regex();
     private int sum = 0;
 
     public Day4() {
@@ -65,8 +64,8 @@ public class Day4 extends Puzzle {
         for (String scratchcard : scratchcards) {
             String[] scratchcardSnippets = scratchcard.split("\\|");
             this.scratchcards.add(new Scratchcard(
-                    regex.findNumbers(scratchcardSnippets[0].split(":")[1], Integer::parseInt),
-                    regex.findNumbers(scratchcardSnippets[1], Integer::parseInt)
+                    Regex.findNumbers(scratchcardSnippets[0].split(":")[1], Regex.positiveNumberPattern, Integer::parseInt),
+                    Regex.findNumbers(scratchcardSnippets[1], Regex.positiveNumberPattern, Integer::parseInt)
             ));
         }
     }
