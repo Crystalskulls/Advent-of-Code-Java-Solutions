@@ -16,7 +16,6 @@ public class Day8 extends Puzzle {
     private List<Integer> navigationInstruction;
     private final Map<String, String[]> nodeMap = new HashMap<>();
     private List<String> startingNodes;
-    private List<String> currentNodes;
 
     public Day8() {
         this.inputFile = "src/main/java/com/github/crystalskulls/aoc/_2023/day8/input.txt";
