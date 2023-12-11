@@ -5,6 +5,8 @@ import com.github.crystalskulls.aoc._2022.day3.Day3;
 import com.github.crystalskulls.aoc._2022.day4.Day4;
 import com.github.crystalskulls.aoc._2022.day5.Day5;
 import com.github.crystalskulls.aoc._2022.day6.Day6;
+import com.github.crystalskulls.aoc._2023.day10.Day10;
+import com.github.crystalskulls.aoc._2023.day11.Day11;
 import com.github.crystalskulls.aoc._2023.day2.Day2;
 import com.github.crystalskulls.aoc._2023.day7.Day7;
 import com.github.crystalskulls.aoc._2023.day8.Day8;
@@ -39,7 +41,8 @@ public class AdventOfCode {
                     6, new com.github.crystalskulls.aoc._2023.day6.Day6(),
                     7, new Day7(),
                     8, new Day8(),
-                    9, new Day9()
+                    9, new Day9(),
+                    11, new Day11()
             )
     );
 
