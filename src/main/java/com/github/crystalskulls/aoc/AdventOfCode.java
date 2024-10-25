@@ -7,6 +7,10 @@ import com.github.crystalskulls.aoc._2022.day5.Day5;
 import com.github.crystalskulls.aoc._2022.day6.Day6;
 import com.github.crystalskulls.aoc._2023.day10.Day10;
 import com.github.crystalskulls.aoc._2023.day11.Day11;
+import com.github.crystalskulls.aoc._2023.day12.Day12;
+import com.github.crystalskulls.aoc._2023.day13.Day13;
+import com.github.crystalskulls.aoc._2023.day14.Day14;
+import com.github.crystalskulls.aoc._2023.day15.Day15;
 import com.github.crystalskulls.aoc._2023.day2.Day2;
 import com.github.crystalskulls.aoc._2023.day7.Day7;
 import com.github.crystalskulls.aoc._2023.day8.Day8;
@@ -15,6 +19,8 @@ import com.github.crystalskulls.aoc.common.Puzzle;
 import org.apache.commons.cli.CommandLine;
 
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class AdventOfCode {
@@ -22,7 +28,8 @@ public class AdventOfCode {
     private static final Map<Integer, Map<Integer, ? extends Puzzle>> puzzleMap = Map.of(
             2015, Map.of(
                     1, new com.github.crystalskulls.aoc._2015.day1.Day1(),
-                    2, new com.github.crystalskulls.aoc._2015.day2.Day2()
+                    2, new com.github.crystalskulls.aoc._2015.day2.Day2(),
+                    3, new com.github.crystalskulls.aoc._2015.day3.Day3()
             ),
             2022, Map.of(
                     1, new Day1(),
@@ -32,7 +39,7 @@ public class AdventOfCode {
                     5, new Day5(),
                     6, new Day6()
             ),
-            2023, Map.of(
+            2023, Stream.concat(Map.of(
                     1, new com.github.crystalskulls.aoc._2023.day1.Day1(),
                     2, new Day2(),
                     3, new com.github.crystalskulls.aoc._2023.day3.Day3(),
@@ -42,8 +49,14 @@ public class AdventOfCode {
                     7, new Day7(),
                     8, new Day8(),
                     9, new Day9(),
-                    11, new Day11()
-            )
+                    10, new Day10()
+            ).entrySet().stream(), Map.of(
+                    11, new Day11(),
+                    12, new Day12(),
+                    13, new Day13(),
+                    14, new Day14(),
+                    15, new Day15()
+            ).entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
     );
 
     public static void main(String[] args) throws Exception {

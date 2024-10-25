@@ -19,4 +19,14 @@ public class Regex {
         }
         return numbers;
     }
+
+    public static List<String> findLensLabels(String s) {
+        List<String> labels = new ArrayList<>();
+        Pattern pattern = Pattern.compile("[a-z]+");
+        Matcher matcher = pattern.matcher(s);
+        while(matcher.find()) {
+            labels.add(matcher.group());
+        }
+        return labels;
+    }
 }
