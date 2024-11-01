@@ -31,7 +31,8 @@ public class AdventOfCode {
                     2, new com.github.crystalskulls.aoc._2015.day2.Day2(),
                     3, new com.github.crystalskulls.aoc._2015.day3.Day3(),
                     4, new com.github.crystalskulls.aoc._2015.day4.Day4(),
-                    5, new com.github.crystalskulls.aoc._2015.day5.Day5()
+                    5, new com.github.crystalskulls.aoc._2015.day5.Day5(),
+                    6, new com.github.crystalskulls.aoc._2015.day6.Day6()
 
             ),
             2022, Map.of(
