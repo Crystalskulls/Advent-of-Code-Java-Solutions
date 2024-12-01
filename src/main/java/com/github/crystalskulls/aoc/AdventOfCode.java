@@ -32,7 +32,8 @@ public class AdventOfCode {
                     3, new com.github.crystalskulls.aoc._2015.day3.Day3(),
                     4, new com.github.crystalskulls.aoc._2015.day4.Day4(),
                     5, new com.github.crystalskulls.aoc._2015.day5.Day5(),
-                    6, new com.github.crystalskulls.aoc._2015.day6.Day6()
+                    6, new com.github.crystalskulls.aoc._2015.day6.Day6(),
+                    8, new com.github.crystalskulls.aoc._2015.day8.Day8()
 
             ),
             2022, Map.of(
@@ -60,7 +61,10 @@ public class AdventOfCode {
                     13, new Day13(),
                     14, new Day14(),
                     15, new Day15()
-            ).entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
+            ).entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)),
+            2024, Map.of(
+                    1, new com.github.crystalskulls.aoc._2024.day1.Day1()
+            )
     );
 
     public static void main(String[] args) throws Exception {
