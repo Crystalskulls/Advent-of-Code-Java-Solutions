@@ -25,11 +25,7 @@ public class Day1 extends Puzzle {
 
     @Override
     protected void solvePart2() {
-        int similarityScore = 0;
-        for (Integer leftLocation : leftList) {
-            similarityScore += leftLocation * rightList.stream().filter(rightLocation -> Objects.equals(rightLocation, leftLocation)).toList().size();
-        }
-        System.out.println("Part 2: " + similarityScore);
+        System.out.println("Part 2: " + leftList.stream().mapToInt(leftLocation -> leftLocation * rightList.stream().filter(rightLocation -> Objects.equals(rightLocation, leftLocation)).toList().size()).sum());
     }
 
     @Override
