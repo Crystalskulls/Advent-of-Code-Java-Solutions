@@ -9,6 +9,7 @@ public class Day1 extends Puzzle {
 
     List<Integer> leftList = new ArrayList<>();
     List<Integer> rightList = new ArrayList<>();
+    HashMap<Integer, Integer> counterMap = new HashMap<>();
 
     public Day1() {
         this.inputFile = "src/main/java/com/github/crystalskulls/aoc/_2024/day1/input.txt";
@@ -25,7 +26,7 @@ public class Day1 extends Puzzle {
 
     @Override
     protected void solvePart2() {
-        System.out.println("Part 2: " + leftList.stream().mapToInt(leftLocation -> leftLocation * rightList.stream().filter(rightLocation -> Objects.equals(rightLocation, leftLocation)).toList().size()).sum());
+        System.out.println("Part 2: " + leftList.stream().mapToInt(leftLocation -> leftLocation * (counterMap.get(leftLocation) == null ? 0 : counterMap.get(leftLocation))).sum());
     }
 
     @Override
@@ -34,7 +35,9 @@ public class Day1 extends Puzzle {
         lines.forEach(line -> {
             String[] locationPairs = line.split(" {3}");
             leftList.add(Integer.parseInt(locationPairs[0]));
-            rightList.add(Integer.parseInt(locationPairs[1]));
+            int i = Integer.parseInt(locationPairs[1]);
+            rightList.add(i);
+            counterMap.merge(i, 1, Integer::sum);
         });
         Collections.sort(leftList);
         Collections.sort(rightList);
