@@ -64,7 +64,8 @@ public class AdventOfCode {
             ).entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)),
             2024, Map.of(
                     1, new com.github.crystalskulls.aoc._2024.day1.Day1(),
-                    2, new com.github.crystalskulls.aoc._2024.day2.Day2()
+                    2, new com.github.crystalskulls.aoc._2024.day2.Day2(),
+                    3, new com.github.crystalskulls.aoc._2024.day3.Day3()
             )
     );
 
