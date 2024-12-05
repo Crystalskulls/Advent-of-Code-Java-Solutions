@@ -9,79 +9,89 @@ import java.util.List;
 
 public class Day5 extends Puzzle {
 
-    private List<List<Integer>> printerUpdates;
-    private HashMap<Integer, List<Integer>> pageOrderingRules = new HashMap<>();
-    List<List<Integer>> incorrectOrderedPrinterUpdates = new ArrayList<>();
+    private List<List<Integer>> pageUpdates;
+    private final HashMap<Integer, List<Integer>> pageOrderingRules = new HashMap<>();
+    private final List<List<Integer>> correctOrderedPageUpdates = new ArrayList<>();
+    private final List<List<Integer>> incorrectOrderedPageUpdates = new ArrayList<>();
 
     public Day5() {
     }
 
     @Override
     protected void solvePart1() {
-        List<List<Integer>> correctOrderedPrinterUpdates = new ArrayList<>();
-        for (List<Integer> printerUpdate : printerUpdates) {
-            boolean correctOrdered = true;
-            List<Integer> previousNumbers = new ArrayList<>();
-            for (int i = 1; i < printerUpdate.size(); i++) {
-                previousNumbers.add(printerUpdate.get(i-1));
-                Integer currentNumber = printerUpdate.get(i);
-                List<Integer> numbersAfter = pageOrderingRules.get(currentNumber);
-                if(numbersAfter != null && previousNumbers.stream().anyMatch(numbersAfter::contains)) {
-                    correctOrdered = false;
-                    break;
-                }
-            }
-            if(correctOrdered) {
-                correctOrderedPrinterUpdates.add(printerUpdate);
-            } else {
-                incorrectOrderedPrinterUpdates.add(printerUpdate);
+        pageUpdates.forEach(pages -> {
+            if(violatesRules(pages))
+                incorrectOrderedPageUpdates.add(pages);
+            else
+                correctOrderedPageUpdates.add(pages);
+        });
+        System.out.println("Part 1: " + correctOrderedPageUpdates.stream().mapToInt(printerUpdate -> printerUpdate.get((printerUpdate.size()-1) / 2)).sum());
+    }
+
+    private boolean violatesRules(List<Integer> pages) {
+        List<Integer> previousPages = new ArrayList<>();
+        for (int i = 1; i < pages.size(); i++) {
+            Integer currentPage = pages.get(i);
+            Integer previousPage = pages.get(i-1);
+            previousPages.add(previousPage);
+            List<Integer> rightPages = pageOrderingRules.get(currentPage);
+            if(rightPages != null && previousPages.stream().anyMatch(rightPages::contains)) {
+                return true;
             }
         }
-        System.out.println("Part 1: " + correctOrderedPrinterUpdates.stream().mapToInt(printerUpdate -> printerUpdate.get((printerUpdate.size()-1) / 2)).sum());
+        return false;
     }
+
 
     @Override
     protected void solvePart2() {
-        List<List<Integer>> correctOrderedPrinterUpdates = new ArrayList<>();
-        for (List<Integer> incorrectOrderedPrinterUpdate : incorrectOrderedPrinterUpdates) {
-            List<Integer> tmpIncorrectOrderedPrinterUpdate = new ArrayList<>(incorrectOrderedPrinterUpdate);
+        List<List<Integer>> correctOrderedPageUpdates = new ArrayList<>();
+        for (List<Integer> incorrectOrderedPageUpdate : incorrectOrderedPageUpdates) {
+            List<Integer> currentPages = new ArrayList<>(incorrectOrderedPageUpdate);
             while (true) {
-                List<Integer> tmpList = new ArrayList<>(tmpIncorrectOrderedPrinterUpdate);
+                List<Integer> pages = new ArrayList<>(currentPages);
                 boolean correctOrdered = true;
                 List<Integer> previousNumbers = new ArrayList<>();
-                for (int i = 1; i < tmpList.size(); i++) {
-                    previousNumbers.add(tmpList.get(i-1));
-                    Integer currentNumber = tmpList.get(i);
+                for (int i = 1; i < pages.size(); i++) {
+                    previousNumbers.add(pages.get(i-1));
+                    Integer currentNumber = pages.get(i);
                     List<Integer> numbersAfter = pageOrderingRules.get(currentNumber);
                     if(numbersAfter != null && previousNumbers.stream().anyMatch(numbersAfter::contains)) {
-                        Integer l = tmpList.get(i-1);
-                        Integer r = tmpList.get(i);
-                        tmpIncorrectOrderedPrinterUpdate.set(i-1, r);
-                        tmpIncorrectOrderedPrinterUpdate.set(i, l);
+                        Integer l = pages.get(i-1);
+                        Integer r = pages.get(i);
+                        currentPages.set(i-1, r);
+                        currentPages.set(i, l);
                         correctOrdered = false;
                         break;
                     }
                 }
                 if(correctOrdered) {
-                    correctOrderedPrinterUpdates.add(tmpIncorrectOrderedPrinterUpdate);
+                    correctOrderedPageUpdates.add(currentPages);
                     break;
                 }
             }
         }
-        System.out.println("Part 2: " + correctOrderedPrinterUpdates.stream().mapToInt(printerUpdate -> printerUpdate.get((printerUpdate.size()-1) / 2)).sum());
+        System.out.println("Part 2: " + correctOrderedPageUpdates.stream().mapToInt(printerUpdate -> printerUpdate.get((printerUpdate.size()-1) / 2)).sum());
     }
 
     @Override
     protected void readInputData(String inputFile) {
-        List<String> printerUpdates = FileReader.readAllLines("src/main/java/com/github/crystalskulls/aoc/_2024/day5/printer_updates.txt");
-        this.printerUpdates = printerUpdates.stream().map(update -> {
+        parseUpdates();
+        parsePageOrderingRules();
+    }
+
+    private void parseUpdates() {
+        List<String> pageUpdates = FileReader.readAllLines("src/main/java/com/github/crystalskulls/aoc/_2024/day5/printer_updates.txt");
+        this.pageUpdates = pageUpdates.stream().map(update -> {
             List<Integer> numbers = new ArrayList<>();
             for (String n : update.split(",")) {
                 numbers.add(Integer.parseInt(n));
             }
             return numbers;
         }).toList();
+    }
 
+    private void parsePageOrderingRules() {
         List<String> pageOrderingRules = FileReader.readAllLines("src/main/java/com/github/crystalskulls/aoc/_2024/day5/page_ordering_rules.txt");
         for (String pageOrderingRule : pageOrderingRules) {
             String[] numbers = pageOrderingRule.split("\\|");
