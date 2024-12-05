@@ -66,7 +66,8 @@ public class AdventOfCode {
                     1, new com.github.crystalskulls.aoc._2024.day1.Day1(),
                     2, new com.github.crystalskulls.aoc._2024.day2.Day2(),
                     3, new com.github.crystalskulls.aoc._2024.day3.Day3(),
-                    4, new com.github.crystalskulls.aoc._2024.day4.Day4()
+                    4, new com.github.crystalskulls.aoc._2024.day4.Day4(),
+                    5, new com.github.crystalskulls.aoc._2024.day5.Day5()
             )
     );
 
