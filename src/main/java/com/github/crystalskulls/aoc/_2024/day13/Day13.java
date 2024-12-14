@@ -21,7 +21,7 @@ public class Day13 extends Puzzle {
     @Override
     protected void solvePart1() {
         long tokens = 0;
-        long counterButtonA = 0;
+        long counterButtonA;
         long counterButtonB;
         for (ClawMachine clawMachine : clawMachines) {
             long quotientY = clawMachine.prize.y / clawMachine.buttonB.y;
@@ -44,10 +44,10 @@ public class Day13 extends Puzzle {
     protected void solvePart2() {
         long tokens = 0;
         for (ClawMachine clawMachine : clawMachines) {
-            long ca = Math.abs(((clawMachine.prize.x + 10000000000000L) * clawMachine.buttonB.y - (clawMachine.prize.y + 10000000000000L) * clawMachine.buttonB.x) / (clawMachine.buttonA.x * clawMachine.buttonB.y - clawMachine.buttonA.y * clawMachine.buttonB.x));
-            long cb = Math.abs(((clawMachine.prize.x + 10000000000000L) * clawMachine.buttonA.y - (clawMachine.prize.y + 10000000000000L) * clawMachine.buttonA.x) / (clawMachine.buttonA.x * clawMachine.buttonB.y - clawMachine.buttonA.y * clawMachine.buttonB.x));
-            if(ca * clawMachine.buttonA.x + cb * clawMachine.buttonB.x == (clawMachine.prize.x + 10000000000000L) && ca * clawMachine.buttonA.y + cb * clawMachine.buttonB.y == (clawMachine.prize.y + 10000000000000L)) {
-                tokens += ca * 3 + cb;
+            long counterButtonA = Math.abs(((clawMachine.prize.x + 10000000000000L) * clawMachine.buttonB.y - (clawMachine.prize.y + 10000000000000L) * clawMachine.buttonB.x) / (clawMachine.buttonA.x * clawMachine.buttonB.y - clawMachine.buttonA.y * clawMachine.buttonB.x));
+            long counterButtonB = Math.abs(((clawMachine.prize.x + 10000000000000L) * clawMachine.buttonA.y - (clawMachine.prize.y + 10000000000000L) * clawMachine.buttonA.x) / (clawMachine.buttonA.x * clawMachine.buttonB.y - clawMachine.buttonA.y * clawMachine.buttonB.x));
+            if(counterButtonA * clawMachine.buttonA.x + counterButtonB * clawMachine.buttonB.x == (clawMachine.prize.x + 10000000000000L) && counterButtonA * clawMachine.buttonA.y + counterButtonB * clawMachine.buttonB.y == (clawMachine.prize.y + 10000000000000L)) {
+                tokens += counterButtonA * 3 + counterButtonB;
             }
         }
         System.out.println("Part 2: " + tokens);
