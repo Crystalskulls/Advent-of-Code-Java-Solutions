@@ -24,7 +24,6 @@ public class Day13 extends Puzzle {
         long counterButtonA = 0;
         long counterButtonB;
         for (ClawMachine clawMachine : clawMachines) {
-            boolean isPossibleToWinPrize = false;
             long quotientY = clawMachine.prize.y / clawMachine.buttonB.y;
             for (counterButtonB = quotientY; counterButtonB > 0L ; counterButtonB--) {
                 long deltaY = clawMachine.prize.y - (counterButtonB * clawMachine.buttonB.y);
@@ -32,13 +31,10 @@ public class Day13 extends Puzzle {
                     counterButtonA = deltaY / clawMachine.buttonA.y;
                     if((counterButtonA * clawMachine.buttonA.x + counterButtonB * clawMachine.buttonB.x) == clawMachine.prize.x &&
                             (counterButtonA * clawMachine.buttonA.y + counterButtonB * clawMachine.buttonB.y) == clawMachine.prize.y) {
-                        isPossibleToWinPrize = true;
+                        tokens += counterButtonA * 3 + counterButtonB;
                         break;
                     }
                 }
-            }
-            if(isPossibleToWinPrize) {
-                tokens += counterButtonA * 3 + counterButtonB;
             }
         }
         System.out.println("Part 1: " + tokens);
