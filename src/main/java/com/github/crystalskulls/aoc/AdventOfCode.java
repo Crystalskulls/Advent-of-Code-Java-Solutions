@@ -74,11 +74,16 @@ public class AdventOfCode {
                     10, new com.github.crystalskulls.aoc._2024.day10.Day10(),
                     11, new com.github.crystalskulls.aoc._2024.day11.Day11()
             ).entrySet().stream(), Map.of(
+                    12, new com.github.crystalskulls.aoc._2024.day12.Day12(),
                     13, new com.github.crystalskulls.aoc._2024.day13.Day13(),
                     14, new com.github.crystalskulls.aoc._2024.day14.Day14(),
                     15, new com.github.crystalskulls.aoc._2024.day15.Day15(),
                     16, new com.github.crystalskulls.aoc._2024.day16.Day16(),
-                    17, new com.github.crystalskulls.aoc._2024.day17.Day17()
+                    17, new com.github.crystalskulls.aoc._2024.day17.Day17(),
+                    18, new com.github.crystalskulls.aoc._2024.day18.Day18(),
+                    19, new com.github.crystalskulls.aoc._2024.day19.Day19(),
+                    20, new com.github.crystalskulls.aoc._2024.day20.Day20(),
+                    22, new com.github.crystalskulls.aoc._2024.day22.Day22()
             ).entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
     );
 
