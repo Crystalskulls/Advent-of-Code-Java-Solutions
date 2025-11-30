@@ -1,8 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="AdventOfCode" type="Application" factoryName="Application" nameIsGenerated="true">
+    <output_file path="$PROJECT_DIR$/aoc.txt" />
     <option name="MAIN_CLASS_NAME" value="com.github.crystalskulls.aoc.AdventOfCode" />
     <module name="advent-of-code" />
-    <option name="PROGRAM_PARAMETERS" value="-y=2024 -d=4" />
+    <option name="PROGRAM_PARAMETERS" value="-y=2018 -d=7" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.github.crystalskulls.aoc.*" />

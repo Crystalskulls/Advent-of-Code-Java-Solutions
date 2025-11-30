@@ -1,7 +1,5 @@
 package com.github.crystalskulls.aoc._2024.day16;
 
-import com.github.crystalskulls.aoc._2023.day11.Node;
-import com.github.crystalskulls.aoc._2024.day10.Day10;
 import com.github.crystalskulls.aoc.common.FileReader;
 import com.github.crystalskulls.aoc.common.Puzzle;
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
@@ -56,6 +54,7 @@ public class Day16 extends Puzzle {
     }
 
     private void solveMaze(List<Tile> queue) {
+        boolean end = false;
         while(!queue.isEmpty()) {
             Tile tile = queue.removeFirst();
             List<Tile> nextTiles = getNextFreeTiles(tile);
@@ -68,16 +67,23 @@ public class Day16 extends Puzzle {
                     nextFreeTile.direction = Direction.EAST;
                 } else if (nextFreeTile.position.getX() == tile.position.getX() && nextFreeTile.position.getY() > tile.position.getY()) {
                     nextFreeTile.direction = Direction.SOUTH;
-                } else {
+                } else if (nextFreeTile.position.getX() < tile.position.getX() && nextFreeTile.position.getY() == tile.position.getY()) {
                     nextFreeTile.direction = Direction.WEST;
                 }
-                if(nextFreeTile.direction != tile.direction) {
+                if(!nextFreeTile.direction.equals(tile.direction)) {
                     tmpScore += 1000;
                 }
                 if(nextFreeTile.score == null || tmpScore <= nextFreeTile.score) {
                     nextFreeTile.score = tmpScore;
                 }
                 nextFreeTile.visitedBy.add(tile);
+                if(nextFreeTile.type.equals(Type.END)) {
+                    end = true;
+                    break;
+                }
+            }
+            if(end) {
+                break;
             }
             queue.sort(Comparator.comparingInt(t -> t.score));
         }
@@ -119,7 +125,7 @@ public class Day16 extends Puzzle {
         nextFreeTiles.add(tiles.get(tile.position.add(new Vector2D(1, 0))));
         nextFreeTiles.add(tiles.get(tile.position.add(new Vector2D(0, -1))));
         nextFreeTiles.add(tiles.get(tile.position.add(new Vector2D(0, 1))));
-        return nextFreeTiles.stream().filter(t -> t.type.equals(Type.FREE) || t.type.equals(Type.END)).filter(t -> !tile.visitedBy.contains(t)).toList();
+        return nextFreeTiles.stream().filter(t -> t.type.equals(Type.FREE) || t.type.equals(Type.END)).toList();
     }
 
     private enum Direction {

@@ -36,6 +36,27 @@ public class AdventOfCode {
                     8, new com.github.crystalskulls.aoc._2015.day8.Day8()
 
             ),
+            2016, Map.of(
+                    1, new com.github.crystalskulls.aoc._2016.day1.Day1(),
+                    2, new com.github.crystalskulls.aoc._2016.day2.Day2(),
+                    3, new com.github.crystalskulls.aoc._2016.day3.Day3(),
+                    4, new com.github.crystalskulls.aoc._2016.day4.Day4()
+            ),
+            2017, Map.of(
+                    2, new com.github.crystalskulls.aoc._2017.day2.Day2(),
+                    3, new com.github.crystalskulls.aoc._2017.day3.Day3()
+            ),
+            2018, Map.of(
+                    1, new com.github.crystalskulls.aoc._2018.day1.Day1(),
+                    2, new com.github.crystalskulls.aoc._2018.day2.Day2(),
+                    3, new com.github.crystalskulls.aoc._2018.day3.Day3(),
+                    4, new com.github.crystalskulls.aoc._2018.day4.Day4(),
+                    5, new com.github.crystalskulls.aoc._2018.day5.Day5(),
+                    7, new com.github.crystalskulls.aoc._2018.day7.Day7()
+            ),
+            2019, Map.of(
+                    3, new com.github.crystalskulls.aoc._2019.day3.Day3()
+            ),
             2022, Map.of(
                     1, new Day1(),
                     2, new com.github.crystalskulls.aoc._2022.day2.Day2(),
@@ -73,7 +94,7 @@ public class AdventOfCode {
                     9, new com.github.crystalskulls.aoc._2024.day9.Day9(),
                     10, new com.github.crystalskulls.aoc._2024.day10.Day10(),
                     11, new com.github.crystalskulls.aoc._2024.day11.Day11()
-            ).entrySet().stream(), Map.of(
+            ).entrySet().stream(), Stream.concat(Map.of(
                     12, new com.github.crystalskulls.aoc._2024.day12.Day12(),
                     13, new com.github.crystalskulls.aoc._2024.day13.Day13(),
                     14, new com.github.crystalskulls.aoc._2024.day14.Day14(),
@@ -84,7 +105,23 @@ public class AdventOfCode {
                     19, new com.github.crystalskulls.aoc._2024.day19.Day19(),
                     20, new com.github.crystalskulls.aoc._2024.day20.Day20(),
                     22, new com.github.crystalskulls.aoc._2024.day22.Day22()
-            ).entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
+            ).entrySet().stream(), Map.of(
+                    23, new com.github.crystalskulls.aoc._2024.day23.Day23(),
+                    24, new com.github.crystalskulls.aoc._2024.day24.Day24(),
+                    25, new com.github.crystalskulls.aoc._2024.day25.Day25()
+            ).entrySet().stream())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)),
+            2025, Map.of(
+                    1, new com.github.crystalskulls.aoc._2025.day1.Day1(),
+                    2, new com.github.crystalskulls.aoc._2025.day2.Day2(),
+                    3, new com.github.crystalskulls.aoc._2025.day3.Day3(),
+                    4, new com.github.crystalskulls.aoc._2025.day4.Day4(),
+                    5, new com.github.crystalskulls.aoc._2025.day5.Day5(),
+                    6, new com.github.crystalskulls.aoc._2025.day6.Day6(),
+                    7, new com.github.crystalskulls.aoc._2025.day7.Day7(),
+                    9, new com.github.crystalskulls.aoc._2025.day9.Day9(),
+                    10, new com.github.crystalskulls.aoc._2025.day10.Day10(),
+                    11, new com.github.crystalskulls.aoc._2025.day11.Day11()
+            )
     );
 
     public static void main(String[] args) throws Exception {
